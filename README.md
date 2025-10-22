@@ -1,5 +1,22 @@
 # eShop Reference Application - "AdventureWorks"
 
+> [!CAUTION]
+> **🚨 NOT PRODUCTION READY 🚨**
+> 
+> This application is a **reference/sample application** for demonstration and learning purposes. It contains configurations that are **NOT suitable for production deployment**.
+> 
+> **Critical Issues:**
+> - Using development-only signing credentials for IdentityServer
+> - Automatic database migrations enabled (can cause production outages)
+> - Using deprecated OAuth2 Implicit Flow
+> 
+> **Before deploying to production, you MUST:**
+> 1. Read [PRODUCTION-READINESS-ASSESSMENT.md](PRODUCTION-READINESS-ASSESSMENT.md) for critical issues
+> 2. Follow the checklist in [PRODUCTION-READINESS.md](PRODUCTION-READINESS.md)
+> 3. Address all security and operational concerns
+> 
+> See documentation for detailed guidance on production deployment.
+
 A reference .NET application implementing an e-commerce website using a services-based architecture using [.NET Aspire](https://learn.microsoft.com/dotnet/aspire/).
 
 ![eShop Reference Application architecture diagram](img/eshop_architecture.png)

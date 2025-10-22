@@ -16,6 +16,11 @@
         });
         builder.EnrichNpgsqlDbContext<OrderingContext>();
 
+        // ============================================================================
+        // ⚠️ WARNING: Automatic Database Migrations - NOT RECOMMENDED FOR PRODUCTION ⚠️
+        // ============================================================================
+        // See src/Identity.API/Program.cs for detailed explanation and PRODUCTION-READINESS.md
+        // ============================================================================
         services.AddMigration<OrderingContext, OrderingContextSeed>();
 
         // Add the integration services that consume the DbContext

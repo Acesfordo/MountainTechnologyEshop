@@ -20,7 +20,12 @@ public static class Extensions
             });
         });
 
+        // ============================================================================
+        // ⚠️ WARNING: Automatic Database Migrations - NOT RECOMMENDED FOR PRODUCTION ⚠️
+        // ============================================================================
         // REVIEW: This is done for development ease but shouldn't be here in production
+        // See src/Identity.API/Program.cs for detailed explanation and PRODUCTION-READINESS.md
+        // ============================================================================
         builder.Services.AddMigration<CatalogContext, CatalogContextSeed>();
 
         // Add the integration services that consume the DbContext
