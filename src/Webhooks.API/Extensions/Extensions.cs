@@ -9,6 +9,11 @@
 
         builder.AddNpgsqlDbContext<WebhooksContext>("webhooksdb");
 
+        // ============================================================================
+        // ⚠️ WARNING: Automatic Database Migrations - NOT RECOMMENDED FOR PRODUCTION ⚠️
+        // ============================================================================
+        // See src/Identity.API/Program.cs for detailed explanation and PRODUCTION-READINESS.md
+        // ============================================================================
         builder.Services.AddMigration<WebhooksContext>();
 
         builder.Services.AddTransient<IGrantUrlTesterService, GrantUrlTesterService>();

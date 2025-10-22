@@ -204,6 +204,30 @@ internal static class OpenApiOptionsExtensions
 
             var identityUrlExternal = identitySection.GetRequiredValue("Url");
             var scopes = identitySection.GetRequiredSection("Scopes").GetChildren().ToDictionary(p => p.Key, p => p.Value);
+            
+            // ============================================================================
+            // ⚠️ SECURITY WARNING: Using Deprecated OAuth2 Implicit Flow ⚠️
+            // ============================================================================
+            // The OAuth2 Implicit Flow is deprecated and considered less secure.
+            //
+            // SECURITY ISSUES:
+            // - Access tokens exposed in browser history and logs
+            // - No client authentication
+            // - Vulnerable to token theft
+            // - Not recommended by OAuth 2.0 Security Best Current Practice
+            //
+            // REQUIRED FOR PRODUCTION:
+            // - Migrate to Authorization Code Flow with PKCE
+            // - Update client applications to use new flow
+            // - Configure proper redirect URIs
+            // - Test thoroughly in staging environment
+            //
+            // References:
+            // - https://oauth.net/2/grant-types/implicit/
+            // - https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics
+            //
+            // See PRODUCTION-READINESS.md for detailed guidance.
+            // ============================================================================
             var securityScheme = new OpenApiSecurityScheme
             {
                 Type = SecuritySchemeType.OAuth2,
