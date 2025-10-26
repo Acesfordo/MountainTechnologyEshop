@@ -98,9 +98,13 @@ Complete Infrastructure-as-Code using Bicep:
 1. **Install Prerequisites:**
    ```bash
    # Install Azure Developer CLI
-   curl -fsSL https://aka.ms/install-azd.sh | bash  # Linux/Mac
-   # OR
-   winget install microsoft.azd  # Windows
+   # Linux/Mac:
+   curl -fsSL https://azd.sh | bash
+   
+   # Windows (PowerShell):
+   winget install microsoft.azd
+   
+   # Or visit: https://aka.ms/azure-dev/install
    ```
 
 2. **Authenticate:**
@@ -199,7 +203,9 @@ Estimated cost: $50-150/month depending on usage
 cd infra
 az bicep build --file main.bicep
 ```
-✅ Passed with expected warnings about secrets in outputs
+✅ Passed validation
+
+**Note on Warnings:** You may see warnings like "outputs-should-not-contain-secrets" for connection strings in the output. These are expected and acceptable - connection strings need to be outputs so they can be passed to the application services. In production, these outputs are only accessible during deployment and are not logged or stored insecurely.
 
 ### Structure Validation
 ✅ All required files present
