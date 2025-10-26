@@ -99,35 +99,29 @@ bool useOpenAI = false;
 
 Here's additional guidance on the [.NET Aspire OpenAI component](https://learn.microsoft.com/dotnet/aspire/azureai/azureai-openai-component?tabs=dotnet-cli). 
 
-### Use Azure Developer CLI
+### Deploy to Microsoft Azure
 
-You can use the [Azure Developer CLI](https://aka.ms/azd) to run this project on Azure with only a few commands. Follow the next instructions:
+You can deploy this application to Microsoft Azure using the [Azure Developer CLI](https://aka.ms/azd). The application will be deployed to Azure Container Apps with all required services.
 
-- Install the latest or update to the latest [Azure Developer CLI (azd)](https://aka.ms/azure-dev/install).
-- Log in `azd` (if you haven't done it before) to your Azure account:
-```sh
+**Quick Start:**
+
+```bash
 azd auth login
-```
-- Initialize `azd` from the root of the repo.
-```sh
 azd init
-```
-- During init:
-  - Select `Use code in the current directory`. Azd will automatically detect the .NET Aspire project.
-  - Confirm `.NET (Aspire)` and continue.
-  - Select which services to expose to the Internet (exposing `webapp` is enough to test the sample).
-  - Finalize the initialization by giving a name to your environment.
-
-- Create Azure resources and deploy the sample by running:
-```sh
 azd up
 ```
-Notes:
-  - The operation takes a few minutes the first time it is ever run for an environment.
-  - At the end of the process, `azd` will display the `url` for the webapp. Follow that link to test the sample.
-  - You can run `azd up` after saving changes to the sample to re-deploy and update the sample.
-  - Report any issues to [azure-dev](https://github.com/Azure/azure-dev/issues) repo.
-  - [FAQ and troubleshoot](https://learn.microsoft.com/azure/developer/azure-developer-cli/troubleshoot?tabs=Browser) for azd.
+
+For detailed deployment instructions, configuration options, and troubleshooting, see:
+- **[AZURE-QUICKSTART.md](./AZURE-QUICKSTART.md)** - Quick reference guide
+- **[AZURE-DEPLOYMENT.md](./AZURE-DEPLOYMENT.md)** - Comprehensive deployment guide
+
+**What you need:**
+- Azure subscription ([Create free account](https://azure.microsoft.com/free/))
+- [Azure Developer CLI (azd)](https://aka.ms/azure-dev/install)
+- [.NET 9 SDK](https://dot.net/download)
+- [Docker Desktop](https://docs.docker.com/engine/install/)
+
+The deployment typically takes 10-15 minutes and creates all necessary Azure resources including Container Apps, PostgreSQL, Redis, and networking.
 
 ## Contributing
 
