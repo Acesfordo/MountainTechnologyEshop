@@ -149,7 +149,7 @@ To deploy this application, users need:
 
 - **Initial deployment**: 10-15 minutes
 - **Subsequent deployments**: 3-5 minutes
-- **Configuration**: Handled automatically by azd
+- **Configuration setup**: < 1 minute (handled automatically by azd)
 
 ## Cost Considerations
 
@@ -207,7 +207,7 @@ azd monitor
 azd show
 
 # Access Azure Portal
-# Visit portal.azure.com and search for resource group
+# Visit https://portal.azure.com and navigate to the resource group
 ```
 
 ## Updating the Application
