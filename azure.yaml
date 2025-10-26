@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: eshop
+metadata:
+  template: eshop@0.0.1-beta
+
+services:
+  # Backend APIs
+  basket-api:
+    project: ./src/Basket.API
+    language: csharp
+    host: containerapp
+    
+  catalog-api:
+    project: ./src/Catalog.API
+    language: csharp
+    host: containerapp
+    
+  identity-api:
+    project: ./src/Identity.API
+    language: csharp
+    host: containerapp
+    
+  ordering-api:
+    project: ./src/Ordering.API
+    language: csharp
+    host: containerapp
+    
+  webhooks-api:
+    project: ./src/Webhooks.API
+    language: csharp
+    host: containerapp
+  
+  # Backend processors
+  order-processor:
+    project: ./src/OrderProcessor
+    language: csharp
+    host: containerapp
+    
+  payment-processor:
+    project: ./src/PaymentProcessor
+    language: csharp
+    host: containerapp
+  
+  # BFF
+  mobile-bff:
+    project: ./src/Mobile.Bff.Shopping
+    language: csharp
+    host: containerapp
+  
+  # Frontend applications
+  webapp:
+    project: ./src/WebApp
+    language: csharp
+    host: containerapp
+    
+  webhooksclient:
+    project: ./src/WebhookClient
+    language: csharp
+    host: containerapp
+
+hooks:
+  preprovision:
+    posix:
+      shell: sh
+      run: echo "Preparing for Azure resource provisioning..."
+      continueOnError: false
+      interactive: false
+    windows:
+      shell: pwsh
+      run: echo "Preparing for Azure resource provisioning..."
+      continueOnError: false
+      interactive: false
+  
+  postprovision:
+    posix:
+      shell: sh
+      run: echo "Azure resources provisioned successfully"
+      continueOnError: false
+      interactive: false
+    windows:
+      shell: pwsh
+      run: echo "Azure resources provisioned successfully"
+      continueOnError: false
+      interactive: false
